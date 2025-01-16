@@ -31,7 +31,7 @@ const rest = new REST().setToken(token);
 
 
 		const data = await rest.put(
-			Routes.applicationGuildCommands(clientID, guildID),
+			Routes.applicationCommands(clientID),
 			{ body: commands },
 		);
 
