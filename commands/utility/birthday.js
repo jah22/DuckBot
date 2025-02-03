@@ -34,7 +34,7 @@ module.exports = {
         }).setZone(timezone, { keepLocalTime: true }).startOf('day');
 
         if (!eventDate.isValid || eventDate < now) {
-            return interaction.reply('Please provide a valid future date in MM/DD format.');
+            return interaction.reply({content: `Please provide a valid future date in MM/DD format.`, flags: MessageFlags.Ephemeral});
         }
 
         // Convert to Unix timestamp
@@ -56,7 +56,7 @@ module.exports = {
             await interaction.reply({content: `Scheduled event "${event.name}" for ${eventDate.toLocaleString(DateTime.DATE_MED)} at midnight`, flags: MessageFlags.Ephemeral});
         } catch(error) {
             console.error(error);
-            await interaction.reply('Failed to create the scheduled event.');
+            await interaction.reply({content: `Failed to create the scheduled event.`, flags: MessageFlags.Ephemeral});
         }
         
 
