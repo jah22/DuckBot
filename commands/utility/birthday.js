@@ -50,7 +50,7 @@ module.exports = {
                 privacyLevel: GuildScheduledEventPrivacyLevel.GuildOnly,
                 entityType: GuildScheduledEventEntityType.External,
                 description: `Scheduled event: ${name}`,
-                //recurrenceRule: GuildScheduledEventRecurrenceRuleFrequency.Yearly,
+                frequency: GuildScheduledEventRecurrenceRuleFrequency.Yearly,
                 entityMetadata: { location: 'Here' },
             });
             await interaction.reply({content: `Scheduled event "${event.name}" for ${eventDate.toLocaleString(DateTime.DATE_MED)} at midnight`, flags: MessageFlags.Ephemeral});
